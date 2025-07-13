@@ -1,0 +1,22 @@
+# Build outputs
+build/
+.svelte-kit/
+dist/
+.output/
+.vercel/
+.netlify/
+
+# Dependencies
+node_modules/
+
+# Generated files
+*.min.js
+*.min.css
+*.d.ts
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Environment and config files that should maintain their format
+.env
+.env.*

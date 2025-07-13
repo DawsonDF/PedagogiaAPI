@@ -1,6 +1,6 @@
-import { json } from "@sveltejs/kit";
-import prisma from "$lib/server/prisma";
-import type { RequestHandler } from "@sveltejs/kit";
+import { json } from '@sveltejs/kit';
+import prisma from '$lib/server/prisma';
+import type { RequestHandler } from '@sveltejs/kit';
 
 // PUT /api/endpoints/[id] - Update an API endpoint
 export const PUT: RequestHandler = async ({ params, request }) => {
@@ -9,10 +9,7 @@ export const PUT: RequestHandler = async ({ params, request }) => {
     const { name, path, method, description } = await request.json();
 
     if (!name || !path || !method) {
-      return json(
-        { message: "Missing required fields: name, path, method" },
-        { status: 400 },
-      );
+      return json({ message: 'Missing required fields: name, path, method' }, { status: 400 });
     }
 
     // Check if endpoint exists
@@ -21,7 +18,7 @@ export const PUT: RequestHandler = async ({ params, request }) => {
     });
 
     if (!existingEndpoint) {
-      return json({ message: "API endpoint not found" }, { status: 404 });
+      return json({ message: 'API endpoint not found' }, { status: 404 });
     }
 
     // Update the endpoint
@@ -38,15 +35,12 @@ export const PUT: RequestHandler = async ({ params, request }) => {
 
     return json(updatedEndpoint, { status: 200 });
   } catch (error: any) {
-    console.error("Error updating API endpoint:", error);
-    if (error.code === "P2002") {
+    console.error('Error updating API endpoint:', error);
+    if (error.code === 'P2002') {
       // Prisma unique constraint violation
-      return json(
-        { message: "An API endpoint with this name already exists." },
-        { status: 409 },
-      );
+      return json({ message: 'An API endpoint with this name already exists.' }, { status: 409 });
     }
-    return json({ message: "Failed to update API endpoint" }, { status: 500 });
+    return json({ message: 'Failed to update API endpoint' }, { status: 500 });
   }
 };
 
@@ -61,7 +55,7 @@ export const DELETE: RequestHandler = async ({ params }) => {
     });
 
     if (!existingEndpoint) {
-      return json({ message: "API endpoint not found" }, { status: 404 });
+      return json({ message: 'API endpoint not found' }, { status: 404 });
     }
 
     // Delete the endpoint
@@ -69,13 +63,10 @@ export const DELETE: RequestHandler = async ({ params }) => {
       where: { id },
     });
 
-    return json(
-      { message: "API endpoint deleted successfully" },
-      { status: 200 },
-    );
+    return json({ message: 'API endpoint deleted successfully' }, { status: 200 });
   } catch (error: any) {
-    console.error("Error deleting API endpoint:", error);
-    return json({ message: "Failed to delete API endpoint" }, { status: 500 });
+    console.error('Error deleting API endpoint:', error);
+    return json({ message: 'Failed to delete API endpoint' }, { status: 500 });
   }
 };
 
@@ -89,12 +80,12 @@ export const GET: RequestHandler = async ({ params }) => {
     });
 
     if (!endpoint) {
-      return json({ message: "API endpoint not found" }, { status: 404 });
+      return json({ message: 'API endpoint not found' }, { status: 404 });
     }
 
     return json(endpoint, { status: 200 });
   } catch (error) {
-    console.error("Error fetching API endpoint:", error);
-    return json({ message: "Failed to fetch API endpoint" }, { status: 500 });
+    console.error('Error fetching API endpoint:', error);
+    return json({ message: 'Failed to fetch API endpoint' }, { status: 500 });
   }
 };
