@@ -3,7 +3,7 @@ import prisma from "$lib/server/prisma";
 import type { RequestHandler } from "@sveltejs/kit";
 
 // GET /api/endpoints - Fetch all API endpoints
-export const GET: RequestHandler = async ({ url }) => {
+export const GET: RequestHandler = async () => {
   try {
     const endpoints = await prisma.apiEndpoint.findMany({
       orderBy: {
