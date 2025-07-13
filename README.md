@@ -18,6 +18,16 @@ This application provides a clean, intuitive interface for:
 - **📊 Viewing all endpoints** - Browse all API endpoints in a modern, responsive card layout
 - **🔍 Real-time feedback** - Instant updates with smooth animations and toast notifications
 
+## 📸 Screenshots
+
+### Dashboard Overview
+
+![Dashboard](docs/screenshots/Dashboard.png)
+
+### Editing Endpoints
+
+![Edit Modal](docs/screenshots/edit.png)
+
 ## 🚧 Project Status
 
 **Current Phase**: Early Development (Alpha)
