@@ -1,0 +1,19 @@
+// Prisma Scheme for the Pedagogia API DB
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model ApiEndpoint {
+  id          String    @id @default(uuid())
+  name        String    @unique
+  path        String
+  method      String // e.g., "GET", "POST", "PUT", "DELETE"
+  description String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
