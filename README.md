@@ -34,12 +34,11 @@ This project is actively being developed and is **not yet ready for production u
 ### 🔄 Currently Working On
 
 - User authentication and authorization
-- API documentation generation
-- Advanced endpoint testing features
-- Performance optimizations
+- Admin page with user management and role-based access control
 
 ### 📋 Planned Features
 
+- Support collections of APIs for documentation and management
 - Team collaboration features
 - API versioning support
 - Integration with external API tools
