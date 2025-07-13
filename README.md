@@ -22,11 +22,11 @@ This application provides a clean, intuitive interface for:
 
 ### Dashboard Overview
 
-![Dashboard](docs/screenshots/Dashboard.png)
+![Dashboard](docs/screenshots/DASHBOARD.png)
 
 ### Editing Endpoints
 
-![Edit Modal](docs/screenshots/edit.png)
+![Edit Modal](docs/screenshots/EDIT.png)
 
 ## 🚧 Project Status
 
